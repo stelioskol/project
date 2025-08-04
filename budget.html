@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Φοιτητικός Προϋπολογισμός</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem;
+    }
+    .left, .right {
+      width: 45%;
+    }
+    select, input, button {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid oklch(16.842% 0.00002 271.152);
+      border-radius: 6px;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="left">
+    <h2>Φοιτητικός Προϋπολογισμός</h2>
+    <form id="entryForm">
+      <label>Τύπος:</label>
+      <select id="type">
+        <option value="income">Έσοδο</option>
+        <option value="expense">Έξοδο</option>
+      </select>
+
+      <label>Ποσό (€):</label>
+      <input type="number" id="amount" required>
+
+      <label>Κατηγορία:</label>
+      <select id="category"></select>
+
+      <button type="submit">Καταχώρηση</button>
+    </form>
+
+    <h3>Καταχωρήσεις</h3>
+    <ul id="entryList"></ul>
+    <h4>Υπόλοιπο: <span id="balance">0.00</span> €</h4>
+
+    <label for="monthSelect">Επιλογή μήνα:</label>
+    <select id="monthSelect"></select>
+  </div>
+
+  <div class="right">
+    <canvas id="expenseChart"></canvas>
+  </div>
+
+  <script src="budget.js"></script>
+</body>
+</html>
